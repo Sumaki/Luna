@@ -28,9 +28,9 @@ public class PlayerDetections : MonoBehaviour
     void GrabRangeCheck()
     {
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, hitDetectionRange))
+        if (Physics.Raycast(playerInput.cc.transform.position, playerInput.cc.transform.forward, out hit, hitDetectionRange))
         {
-            Debug.DrawRay(transform.position, transform.forward * hitDetectionRange, Color.yellow);
+            Debug.DrawRay(playerInput.cc.transform.position, playerInput.cc.transform.forward * hitDetectionRange, Color.yellow);
             if (hit.transform.tag == "PushObj")
             {
                 Debug.Log("In sight of pushable object");

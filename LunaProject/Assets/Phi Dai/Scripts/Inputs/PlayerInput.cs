@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     #region Player Properties
-    CharacterController cc;
+    public CharacterController cc;
 
     public bool grab = false;
     public bool parented = false;
@@ -76,12 +76,12 @@ public class PlayerInput : MonoBehaviour
             //move = new Vector3(0,0,verticalMovement);     
             if(verticalMovement == 0 && horizontalMovement == 0)
                 move = objFwd;
-        } 
+        }
 
         // Rotation check
         if (move != Vector3.zero && !grab && !parented)
         {
-           transform.rotation = Quaternion.LookRotation(move);
+            cc.transform.rotation = Quaternion.LookRotation(move);
         }
 
         // Initial movement         
