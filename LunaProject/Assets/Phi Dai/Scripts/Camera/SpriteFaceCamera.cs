@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class allows us to maintain a stable rotation with our character's sprite and will always look at the camera.
+/// </summary>
 public class SpriteFaceCamera : MonoBehaviour
 {
     Quaternion initRot;

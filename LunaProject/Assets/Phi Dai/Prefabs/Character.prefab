@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6266669639470583485}
   - component: {fileID: 6266669639470583483}
   - component: {fileID: 6266669639470583484}
+  - component: {fileID: 1323990213}
   m_Layer: 0
   m_Name: SpriteSample
   m_TagString: Untagged
@@ -95,6 +96,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c9f302136347b44b36cc2fefa7735b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1323990213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266669639470583486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7ed6560aa7068459bdb14b6b89a67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6266669639840278069
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +136,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6266669639840278069}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.83, y: 1.12, z: -9.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -150,8 +163,6 @@ MonoBehaviour:
   jumpHeight: 0.5
   gravityValue: -9.81
   groundedPlayer: 0
-  pullValue: 0
-  pushValue: 5
   debug: 0
 --- !u!143 &6266669639840278068
 CharacterController:

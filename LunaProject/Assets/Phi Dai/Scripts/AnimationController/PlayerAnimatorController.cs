@@ -20,6 +20,9 @@ public class PlayerAnimatorController : MonoBehaviour
         CheckVariables();
     }
 
+    /// <summary>
+    /// Sets the animation status depending on the player's inputs.
+    /// </summary>
     void CheckVariables()
     {
         switch (playerState)

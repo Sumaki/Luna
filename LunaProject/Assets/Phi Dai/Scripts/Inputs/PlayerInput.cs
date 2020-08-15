@@ -7,8 +7,13 @@ public class PlayerInput : MonoBehaviour
     #region Player Properties
     public CharacterController cc;
 
+    // Grab check
     public bool grab = false;
+    // Parent check
     public bool parented = false;
+
+    // Sprite X flip check
+    public static bool flipX = false;
 
 
     private float verticalMovement;
@@ -24,10 +29,10 @@ public class PlayerInput : MonoBehaviour
     private float gravityValue = -9.81f;
     [SerializeField]
     private bool groundedPlayer;
-    [SerializeField]
-    private float pullValue;
-    [SerializeField]
-    private float pushValue;
+    //[SerializeField]
+    //private float pullValue;
+    //[SerializeField]
+    //private float pushValue;
  
     #endregion
 
@@ -62,7 +67,7 @@ public class PlayerInput : MonoBehaviour
         }
         else if (grab && parented)
         {
-            // Rework later if needed
+            // Rework later if needed using pull/push values
             Vector3 objFwd = Vector3.zero;
             if (verticalMovement != 0 && horizontalMovement == 0)
             {
@@ -100,16 +105,19 @@ public class PlayerInput : MonoBehaviour
         // Input check to jump + sets variable for the jump animation
         if (Input.GetButtonDown("Jump") && groundedPlayer && !grab)
         {
-            
+            // Sets player's state to jump
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.jump;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
+        // Input check for grab + sets variable for the interact animation
         if (Input.GetKey(KeyCode.E) && PlayerDetections.grabInRange)
-        {           
-                PlayerAnimatorController.playerState = PlayerAnimatorController.State.interact;
-                grab = true;         
+        {
+            // Sets player's state to interact
+            PlayerAnimatorController.playerState = PlayerAnimatorController.State.interact;
+            grab = true;         
         }
+        // This checks if the player releases the key and if they are still in grab range
         else if (Input.GetKeyUp(KeyCode.E) && PlayerDetections.grabInRange)
         {
             horizontalMovement = 0;
@@ -117,8 +125,11 @@ public class PlayerInput : MonoBehaviour
             grab = false;
         }
         
+        // Grabs inputs and sets variable for movement
         verticalMovement = Input.GetAxisRaw("Vertical");
         horizontalMovement = Input.GetAxisRaw("Horizontal");
+
+        SetPixelFlipVariable();
 
 
         // The following two if statements sets the animation for the character via a animator controller
@@ -132,10 +143,19 @@ public class PlayerInput : MonoBehaviour
         {
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.walk;
         }
+  
+    }
 
-       
-
-       
+    /// <summary>
+    /// This method reads the player's input and flips the X axis of the sprite accordingly to match the player's movement.
+    /// </summary>
+    void SetPixelFlipVariable()
+    {
+        if (horizontalMovement > 0)
+            flipX = false;
+        if (horizontalMovement < 0)
+            flipX = true;
+        
     }
     /// <summary>
     /// Check if the player is grounded then apply its velocity to 0.
