@@ -28,7 +28,7 @@ public class PlayerInput : MonoBehaviour
     #endregion
 
     public bool debug;
-
+    
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -73,25 +73,27 @@ public class PlayerInput : MonoBehaviour
 
         // The following two if statements sets the animation for the character via a animator controller
 
-        if (verticalMovement == 0 && horizontalMovement == 0)
+        if (verticalMovement == 0 && horizontalMovement == 0 && groundedPlayer)
         {
-            // idle = true
-            // walk/run = false            
+            PlayerAnimatorController.playerState = PlayerAnimatorController.State.idle;           
         }
 
-        if (verticalMovement > 0 || verticalMovement < 0 || horizontalMovement > 0 || horizontalMovement < 0)
+        if ((verticalMovement !=0 || horizontalMovement != 0) && groundedPlayer)
         {
-            // walk/run = true
-            // idle = false   
+            PlayerAnimatorController.playerState = PlayerAnimatorController.State.walk;
         }
-       
+
         // Input check to jump + sets variable for the jump animation
-        if(Input.GetButtonDown("Jump") && groundedPlayer)
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
-            // jump = true
-            // run = false
             
+            PlayerAnimatorController.playerState = PlayerAnimatorController.State.jump;
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            PlayerAnimatorController.playerState = PlayerAnimatorController.State.interact;
         }
 
        
@@ -112,11 +114,13 @@ public class PlayerInput : MonoBehaviour
     /// Enables debugger for player variables.
     /// </summary>
     void DebuggerCheck()
-    {             
-            Debug.Log("Movement: " + move);
+    {
+        //Debug.Log("Movement: " + move);
+        Debug.Log("PlayerState: " + PlayerAnimatorController.playerState);
             if (!groundedPlayer)
                 Debug.Log("In Air");
             if (verticalMovement == 0 && horizontalMovement == 0)
-                Debug.Log("Idle");            
+                Debug.Log("Idle");         
+            
     }
 }
