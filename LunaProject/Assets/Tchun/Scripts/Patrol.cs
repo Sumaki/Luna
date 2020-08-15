@@ -9,6 +9,7 @@ public class Patrol : MonoBehaviour
     public int speed;
 
     private int waypointIndex;
+    public float waypointSensivity;     //lower means tight pathing, higher means more variance
     private float distance;
 
     void Start()
@@ -20,14 +21,14 @@ public class Patrol : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(transform.position, waypoints[waypointIndex].position);
-        if(distance < 1f)
+        if(distance < waypointSensivity)
         {
             IncreaseIndex();
         }
-        PatrolPath();
+        PatrolPathing();
     }
 
-    void PatrolPath()
+    void PatrolPathing()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
@@ -41,4 +42,6 @@ public class Patrol : MonoBehaviour
         }
         transform.LookAt(waypoints[waypointIndex].position);
     }
+
+    //TODO: Player detection
 }

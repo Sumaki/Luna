@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/**
+ * UNDONE
+ * Obsolete, in favor of PlayerInput script
+ */ 
 public class Controller : MonoBehaviour
 {
 
