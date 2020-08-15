@@ -27,8 +27,12 @@ public class PlayerInput : MonoBehaviour
     private float jumpHeight = 0.5f;
     [SerializeField]
     private float gravityValue = -9.81f;
+
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+
     [SerializeField]
-    private bool groundedPlayer;
+    private bool groundedPlayer = true;
     //[SerializeField]
     //private float pullValue;
     //[SerializeField]
@@ -98,17 +102,39 @@ public class PlayerInput : MonoBehaviour
     }
 
     /// <summary>
-    /// Read player's input then set variables to apply for movement.
+    /// Read player's input then set variables to apply for movement. 
     /// </summary>
     void UserInput()
     {
+
+        // ROUGH DRAFT OF JUMP
+
+        //Debug.Log("Player Velocity Y: " + playerVelocity.y);
+
         // Input check to jump + sets variable for the jump animation
         if (Input.GetButtonDown("Jump") && groundedPlayer && !grab)
         {
             // Sets player's state to jump
+          
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.jump;
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            //playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);               
+            // Debug.Log("Hold jump");
+            //playerVelocity.y += jumpHeight * (-fallMultiplier ) * Time.deltaTime;
+            playerVelocity.y = jumpHeight;
+            
         }
+
+        else if (!Input.GetButton("Jump") && playerVelocity.y > 0 && !groundedPlayer)
+        {
+            // Sets player's state to jump
+            PlayerAnimatorController.playerState = PlayerAnimatorController.State.jump;
+           // playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * lowJumpMultiplier);
+           //Debug.Log("Short jump");
+            playerVelocity.y += -lowJumpMultiplier;
+        }
+
+
+
 
         // Input check for grab + sets variable for the interact animation
         if (Input.GetKey(KeyCode.E) && PlayerDetections.grabInRange)
