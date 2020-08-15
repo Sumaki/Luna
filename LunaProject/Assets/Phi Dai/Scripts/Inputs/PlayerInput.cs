@@ -56,7 +56,6 @@ public class PlayerInput : MonoBehaviour
 
         // check grounded via character controller
         groundedPlayer = cc.isGrounded;       
-        CheckGrounded();
 
 
         UserInput();
@@ -181,18 +180,7 @@ public class PlayerInput : MonoBehaviour
             flipX = false;
         if (horizontalMovement < 0)
             flipX = true;
-        
-    }
-    /// <summary>
-    /// Check if the player is grounded then apply its velocity to 0.
-    /// </summary>
-    void CheckGrounded()
-    {
-        if (groundedPlayer && playerVelocity.y < 0)
-        {
-            // jump = false <- set for animation for transition
-            playerVelocity.y = 0f;
-        }
+
     }
 
     /// <summary>
