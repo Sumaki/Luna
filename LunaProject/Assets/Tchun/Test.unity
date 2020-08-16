@@ -2895,13 +2895,14 @@ GameObject:
   - component: {fileID: 831292142}
   - component: {fileID: 831292141}
   - component: {fileID: 831292140}
+  - component: {fileID: 831292144}
   m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &831292140
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2977,6 +2978,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831292144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831292139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2806f31954516284c95adc51da65b61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &989998042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,6 +3142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f558debd1af312d41a8a30b98e7537e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cc: {fileID: 0}
+  grab: 0
+  parented: 0
   speed: 10
   jumpHeight: 0.5
   gravityValue: -9.81
