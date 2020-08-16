@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4827049863441118139}
   - component: {fileID: 8454096337968725022}
   - component: {fileID: 5959965012630866132}
+  - component: {fileID: 8251653684861855054}
   m_Layer: 0
   m_Name: Skull
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5311697699369724161}
   m_LocalRotation: {x: -0.7037009, y: -0.24318929, z: -0.17846563, w: 0.6432838}
   m_LocalPosition: {x: -5.1, y: 0.25, z: 6.05}
-  m_LocalScale: {x: 52.83308, y: 43.200382, z: 49.44314}
+  m_LocalScale: {x: 37.349293, y: 30.53965, z: 34.95284}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8251653684861855054
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311697699369724161}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5275773004055656219, guid: 7191a24a97900bd48a01575b7856e1bf, type: 3}

@@ -116,7 +116,7 @@ public class PlayerInput : MonoBehaviour
 
         // ROUGH DRAFT OF JUMP
 
-        Debug.Log("Player Velocity Y: " + playerVelocity.y);
+        //Debug.Log("Player Velocity Y: " + playerVelocity.y);
 
         // Input check to jump + sets variable for the jump animation
         if (Input.GetButtonDown("Jump") && groundedPlayer && !grab)
