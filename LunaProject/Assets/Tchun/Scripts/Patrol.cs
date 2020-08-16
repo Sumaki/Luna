@@ -12,11 +12,6 @@ public class Patrol : MonoBehaviour
     public float waypointSensivity;     //lower means tight pathing, higher means more variance
     private float distance;
 
-    public GameObject player;
-    public bool lightDetected;
-    public int timeLit;
-    public int maxTimeLit;
-
     void Start()
     {
         waypointIndex = 0;
@@ -31,14 +26,6 @@ public class Patrol : MonoBehaviour
             IncreaseIndex();
         }
         PatrolPathing();
-        if(lightDetected)
-        {
-            timeLit++;
-            if(timeLit > maxTimeLit)
-            {
-                print("LOST");
-            }
-        }
     }
 
     void PatrolPathing()
@@ -55,7 +42,5 @@ public class Patrol : MonoBehaviour
         }
         transform.LookAt(waypoints[waypointIndex].position);
     }
-
-    //TODO: Player detection
     
 }
