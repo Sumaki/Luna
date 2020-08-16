@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     // Can be changed to variables/list if needed
     public AudioSource footStep;
+    public AudioSource jump;
     public enum Audio { none, footStepSFX, jumpSFX, interactSFX}
     public static Audio audioState;   
 
@@ -17,27 +18,34 @@ public class SoundManager : MonoBehaviour
 
 
     void PlayAudioOnState()
-    {
-        switch (audioState)
-        {
+    {   
+            switch (audioState)
+            {
             case (Audio.none):
+                StopAll();
                 break;
-            case (Audio.footStepSFX):              
+            case (Audio.footStepSFX):
                 //recheck intervals
-                    StartCoroutine(FootStepInterval());
+                if (!footStep.isPlaying)
+                    footStep.Play();
                 break;
             case (Audio.jumpSFX):
                 break;
-            case (Audio.interactSFX):
+               // if (!jump.isPlaying)
+                   
                 break;
-        }
+            case (Audio.interactSFX):
+                StopAll();
+                break;
+            }
     }
-   
-    IEnumerator FootStepInterval()
-    {      
-        if (!footStep.isPlaying)
-            footStep.Play();
-        yield return new WaitForSeconds(1f);
+  
+    void StopAll()
+    {
+        if (footStep.isPlaying)
+            footStep.Stop();
+        if (jump.isPlaying)
+            jump.Stop();
     }
   
 }

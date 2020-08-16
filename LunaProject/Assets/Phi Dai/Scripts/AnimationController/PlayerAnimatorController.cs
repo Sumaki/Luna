@@ -6,7 +6,7 @@ public class PlayerAnimatorController : MonoBehaviour
 {
     #region Animator Variables
     public Animator ani;
-    public enum State {idle, walk, jump, interact };
+    public enum State {idle, walk, jump, interact, land };
     public static State playerState;
     #endregion
 
@@ -32,24 +32,35 @@ public class PlayerAnimatorController : MonoBehaviour
                 ani.SetBool("walk", false);
                 ani.SetBool("jump", false);
                 ani.SetBool("interact", false);
+                ani.SetBool("land", false);
                 break;
             case (State.walk):
                 ani.SetBool("idle", false);
                 ani.SetBool("walk", true);
                 ani.SetBool("jump", false);
                 ani.SetBool("interact", false);
+                ani.SetBool("land", false);
                 break;
             case (State.jump):
                 ani.SetBool("idle", false);
                 ani.SetBool("walk", false);
                 ani.SetBool("jump", true);
                 ani.SetBool("interact", false);
+                ani.SetBool("land", false);
                 break;
             case (State.interact):
                 ani.SetBool("idle", false);
                 ani.SetBool("walk", false);
                 ani.SetBool("jump", false);
                 ani.SetBool("interact", true);
+                ani.SetBool("land", false);
+                break;
+            case (State.land):
+                ani.SetBool("idle", false);
+                ani.SetBool("walk", false);
+                ani.SetBool("jump", false);
+                ani.SetBool("interact", false);
+                ani.SetBool("land", true);
                 break;
         }
     }

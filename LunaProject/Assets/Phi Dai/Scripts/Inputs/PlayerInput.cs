@@ -37,7 +37,13 @@ public class PlayerInput : MonoBehaviour
     //private float pullValue;
     //[SerializeField]
     //private float pushValue;
- 
+
+    #endregion
+
+    #region Player SFX Properties
+    [Header("Player SFX")]
+    public AudioSource footStep;
+    public AudioSource jump;
     #endregion
 
     // Set true in inspector to see certain values.
@@ -55,9 +61,10 @@ public class PlayerInput : MonoBehaviour
             DebuggerCheck();
 
         // check grounded via character controller
-        groundedPlayer = cc.isGrounded;       
-
-
+        groundedPlayer = cc.isGrounded;
+        // check if player is in the air
+        if (playerVelocity.y < 0)
+            PlayerAnimatorController.playerState = PlayerAnimatorController.State.land;
         UserInput();
 
         
@@ -114,23 +121,17 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetButtonDown("Jump") && groundedPlayer && !grab)
         {
             // Sets player's state to jump
-          
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.jump;
-            SoundManager.audioState = SoundManager.Audio.jumpSFX;
-            //playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);               
-            //Debug.Log("Hold jump");
-            //playerVelocity.y += jumpHeight * (-fallMultiplier ) * Time.deltaTime;
+            if (!jump.isPlaying)
+                jump.Play();
+
             playerVelocity.y = jumpHeight;
-            
+
         }
 
         else if (!Input.GetButton("Jump") && playerVelocity.y > 0 && !groundedPlayer)
         {
-            // Sets player's state to jump
-            PlayerAnimatorController.playerState = PlayerAnimatorController.State.jump;
-            SoundManager.audioState = SoundManager.Audio.jumpSFX;
-            // playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * lowJumpMultiplier);
-            // Debug.Log("Short jump");
+            // Apply another gravity on a short hop
             playerVelocity.y += -lowJumpMultiplier;
         }
 
@@ -163,16 +164,17 @@ public class PlayerInput : MonoBehaviour
 
         // The following two if statements sets the animation for the character via a animator controller
 
-        if (verticalMovement == 0 && horizontalMovement == 0 && groundedPlayer && !Input.GetButtonDown("Jump"))
+        if (verticalMovement == 0 && horizontalMovement == 0 && groundedPlayer && !Input.GetButtonDown("Jump") && !grab)
         {
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.idle;
             SoundManager.audioState = SoundManager.Audio.none;
         }
 
-        if ((verticalMovement !=0 || horizontalMovement != 0) && groundedPlayer && !Input.GetButtonDown("Jump"))
+        if ((verticalMovement !=0 || horizontalMovement != 0) && groundedPlayer && !Input.GetButtonDown("Jump") && !grab)
         {
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.walk;
-            SoundManager.audioState = SoundManager.Audio.footStepSFX;
+            if (!footStep.isPlaying)
+                footStep.Play();
         }
   
     }

@@ -230,6 +230,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1703483295014069764, guid: fc00e403af4b01140a72173c1d307e41, type: 3}
+--- !u!82 &454808067 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 454808067, guid: 832c594c36709aa42a386e7aa4e70502,
+    type: 3}
+  m_PrefabInstance: {fileID: 4612806978409041182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &469068426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -512,7 +518,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42158
+  m_Name: pb_Mesh81656
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2141,26 +2147,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2bca0bf418dff948918824acb606655, type: 3}
---- !u!1 &1489484527 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8068073526183931155, guid: 133d0828fdf1b51408b08e040a73dc06,
-    type: 3}
-  m_PrefabInstance: {fileID: 1284440010}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1489484531
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489484527}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2619086233303812490, guid: 133d0828fdf1b51408b08e040a73dc06, type: 3}
 --- !u!1 &1562889944 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a2bca0bf418dff948918824acb606655,
@@ -2834,6 +2820,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSounds
       objectReference: {fileID: 0}
+    - target: {fileID: 4612806978226470007, guid: 832c594c36709aa42a386e7aa4e70502,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 832c594c36709aa42a386e7aa4e70502, type: 3}
 --- !u!1001 &6266669640516432511
@@ -2847,6 +2838,10 @@ PrefabInstance:
       propertyPath: footStep
       value: 
       objectReference: {fileID: 522334569}
+    - target: {fileID: 1652871855, guid: a8bd87ecd05852d4cba939f6f3d56086, type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 454808067}
     - target: {fileID: 6266669639840278064, guid: a8bd87ecd05852d4cba939f6f3d56086,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2902,6 +2897,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6266669639840278067, guid: a8bd87ecd05852d4cba939f6f3d56086,
+        type: 3}
+      propertyPath: footStep
+      value: 
+      objectReference: {fileID: 522334569}
+    - target: {fileID: 6266669639840278067, guid: a8bd87ecd05852d4cba939f6f3d56086,
+        type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 454808067}
     - target: {fileID: 6266669639840278069, guid: a8bd87ecd05852d4cba939f6f3d56086,
         type: 3}
       propertyPath: m_Name
