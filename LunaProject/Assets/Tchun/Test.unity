@@ -3128,7 +3128,7 @@ MonoBehaviour:
   visibleTargets: []
   meshResolution: 1
   edgeResolveIterations: 4
-  edgeDstThreshold: 0.5
+  edgeDistThreshold: 0
   viewMeshFilter: {fileID: 413179334}
 --- !u!114 &989998050
 MonoBehaviour:
@@ -3148,9 +3148,9 @@ MonoBehaviour:
   speed: 10
   jumpHeight: 0.5
   gravityValue: -9.81
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
   groundedPlayer: 0
-  pullValue: 0
-  pushValue: 0
   debug: 0
 --- !u!143 &989998051
 CharacterController:
@@ -3330,7 +3330,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15468
+  m_Name: pb_Mesh76350
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
