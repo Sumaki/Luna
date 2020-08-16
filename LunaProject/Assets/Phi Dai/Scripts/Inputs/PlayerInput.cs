@@ -210,7 +210,16 @@ public class PlayerInput : MonoBehaviour
     /// <param name="hit"> What the character controller hits </param>
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        //print(hit.gameObject.name);
+       // print(hit.gameObject.name);
+        if(hit.normal.y < 0.707)
+        {
+           // print(hit.gameObject.name);
+        }
+
+        if(hit.gameObject.tag == "Ground")
+        {
+            //Debug.Log("touching ground");
+        }
     }
    
 }
