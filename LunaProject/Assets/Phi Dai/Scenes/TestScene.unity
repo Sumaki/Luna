@@ -769,7 +769,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh103704
+  m_Name: pb_Mesh931316
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3643,7 +3643,7 @@ PrefabInstance:
     - target: {fileID: 7071201210398116751, guid: 5a5329b18066d34418b2ff272b82546a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7071201210460362904, guid: 5a5329b18066d34418b2ff272b82546a,
         type: 3}
@@ -3664,6 +3664,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071201211515874472, guid: 5a5329b18066d34418b2ff272b82546a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.3679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071201211515874472, guid: 5a5329b18066d34418b2ff272b82546a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071201211515874472, guid: 5a5329b18066d34418b2ff272b82546a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.3679245
       objectReference: {fileID: 0}
     - target: {fileID: 7071201211515874486, guid: 5a5329b18066d34418b2ff272b82546a,
         type: 3}
