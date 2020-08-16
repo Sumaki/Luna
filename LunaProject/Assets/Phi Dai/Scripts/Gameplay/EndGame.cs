@@ -6,12 +6,21 @@ public class EndGame : MonoBehaviour
 {
 
     public GameObject endingCanvas;
+    public AudioSource endAudio;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            endingCanvas.GetComponent<Animator>().SetBool("fade", true);
+            endingCanvas.GetComponentInChildren<Animator>().SetBool("fade", true);
+            endAudio.Play();
+            StartCoroutine(CloseGame());
         }
+    }
+
+    IEnumerator CloseGame()
+    {
+        yield return new WaitForSeconds(3f);
+        Application.Quit();
     }
 }
