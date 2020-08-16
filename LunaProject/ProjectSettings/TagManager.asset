@@ -5,11 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - PushObj
-<<<<<<< Updated upstream
-  - PostProcessing
-=======
   - Key
->>>>>>> Stashed changes
+  - PostProcessing
+  - NPC
+  - Teleport
   layers:
   - Default
   - TransparentFX
@@ -23,7 +22,7 @@ TagManager:
   - Target
   - Unselectable
   - ObjectNoNearClip
-  - Postprocessing
+  - 
   - 
   - 
   - 

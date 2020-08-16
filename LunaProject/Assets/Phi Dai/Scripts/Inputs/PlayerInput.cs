@@ -210,11 +210,20 @@ public class PlayerInput : MonoBehaviour
     /// <param name="hit"> What the character controller hits </param>
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        print(hit.gameObject.name);
+        //print(hit.gameObject.name);
         if (hit.gameObject.tag == "Key")
         {
             hit.gameObject.GetComponent<ObjectInteractEvent>().interacted = true;
         }
+
+        if(hit.gameObject.tag == "NPC" || hit.gameObject.tag == "Teleport")
+        {
+            cc.enabled = false;
+            cc.transform.position = hit.gameObject.GetComponent<TeleportPlayer>().destination.transform.position;
+            cc.enabled = true;
+        }
+
+
     }
    
 }

@@ -10,11 +10,10 @@ public class ObjectInteractEvent : MonoBehaviour
     public bool interacted = false;
 
     void Update()
-    {
-      
-            // destroy it and disable asset
-            if(interacted)
-              ObjEventDestroy();
+    {      
+      // destroy it and disable asset
+       if(interacted)
+           ObjEventDestroy();
        
     }
 
