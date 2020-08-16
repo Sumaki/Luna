@@ -6,19 +6,18 @@ public class TeleportPlayer : MonoBehaviour
 {
     public Transform destination;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        // change for tag
-        if(collision.transform.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
-            Debug.Log("TP'd");
-            collision.transform.gameObject.GetComponent<CharacterController>().enabled = false;
-            collision.transform.gameObject.transform.position = destination.position;
-            collision.transform.gameObject.GetComponent<CharacterController>().enabled = true;
+            other.transform.gameObject.GetComponent<CharacterController>().enabled = false;
+            other.transform.gameObject.transform.position = destination.position;
+            other.transform.gameObject.GetComponent<CharacterController>().enabled = true;
+
         }
     }
 
-    
 
-    
+
+
 }
