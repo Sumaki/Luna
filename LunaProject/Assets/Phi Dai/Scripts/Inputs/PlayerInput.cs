@@ -116,7 +116,7 @@ public class PlayerInput : MonoBehaviour
 
         // ROUGH DRAFT OF JUMP
 
-        Debug.Log("Player Velocity Y: " + playerVelocity.y);
+        //Debug.Log("Player Velocity Y: " + playerVelocity.y);
 
         // Input check to jump + sets variable for the jump animation
         if (Input.GetButtonDown("Jump") && groundedPlayer && !grab)
@@ -211,19 +211,6 @@ public class PlayerInput : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //print(hit.gameObject.name);
-        if (hit.gameObject.tag == "Key")
-        {
-            hit.gameObject.GetComponent<ObjectInteractEvent>().interacted = true;
-        }
-
-        if(hit.gameObject.tag == "NPC" || hit.gameObject.tag == "Teleport")
-        {
-            cc.enabled = false;
-            cc.transform.position = hit.gameObject.GetComponent<TeleportPlayer>().destination.transform.position;
-            cc.enabled = true;
-        }
-
-
     }
    
 }

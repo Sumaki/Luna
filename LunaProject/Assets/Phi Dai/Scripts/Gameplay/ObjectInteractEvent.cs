@@ -6,23 +6,18 @@ public class ObjectInteractEvent : MonoBehaviour
 {
 
     public GameObject assetToDisable;
-    public AudioSource interactedSFX;
-    public bool interacted = false;
+    public AudioSource interactedSFX;  
 
-    void Update()
-    {      
-      // destroy it and disable asset
-       if(interacted)
-           ObjEventDestroy();
-       
-    }
 
-    void ObjEventDestroy()
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Destroyed asset");
-        interactedSFX.Play();
-        assetToDisable.SetActive(false);
-        Destroy(this.gameObject);
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Destroyed asset");
+            interactedSFX.Play();
+            assetToDisable.SetActive(false);
+            Destroy(this.gameObject);
+        }
     }
 
 
