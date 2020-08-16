@@ -9,6 +9,7 @@ TagManager:
   - PostProcessing
   - NPC
   - Teleport
+  - Ground
   layers:
   - Default
   - TransparentFX
