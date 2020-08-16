@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6707590601839594946}
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -3.059, y: 0.761, z: 5.369}
-  m_LocalScale: {x: 179.46185, y: 179.46185, z: 179.46185}
+  m_LocalScale: {x: 179.46187, y: 179.46185, z: 179.46185}
   m_Children:
   - {fileID: 7166072309056285726}
   m_Father: {fileID: 0}
@@ -162,7 +162,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
