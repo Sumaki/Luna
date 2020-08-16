@@ -116,7 +116,7 @@ public class PlayerInput : MonoBehaviour
 
         // ROUGH DRAFT OF JUMP
 
-        //Debug.Log("Player Velocity Y: " + playerVelocity.y);
+        Debug.Log("Player Velocity Y: " + playerVelocity.y);
 
         // Input check to jump + sets variable for the jump animation
         if (Input.GetButtonDown("Jump") && groundedPlayer && !grab)
@@ -130,11 +130,11 @@ public class PlayerInput : MonoBehaviour
 
         }
 
-        else if (!Input.GetButton("Jump") && playerVelocity.y > 0 && !groundedPlayer)
+        /*else if (!Input.GetButton("Jump") && playerVelocity.y > 0 && !groundedPlayer)
         {
             // Apply another gravity on a short hop
             playerVelocity.y += -lowJumpMultiplier;
-        }
+        }*/
 
 
 
@@ -210,7 +210,7 @@ public class PlayerInput : MonoBehaviour
     /// <param name="hit"> What the character controller hits </param>
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-       
+        print(hit.gameObject.name);
     }
    
 }
