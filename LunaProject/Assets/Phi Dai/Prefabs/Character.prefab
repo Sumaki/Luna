@@ -196,6 +196,8 @@ MonoBehaviour:
   fallMultiplier: 2.5
   lowJumpMultiplier: 1.5
   groundedPlayer: 0
+  footStep: {fileID: 0}
+  jump: {fileID: 0}
   debug: 0
 --- !u!143 &6266669639840278068
 CharacterController:
