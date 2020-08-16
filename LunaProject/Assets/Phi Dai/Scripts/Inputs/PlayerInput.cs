@@ -44,6 +44,7 @@ public class PlayerInput : MonoBehaviour
     [Header("Player SFX")]
     public AudioSource footStep;
     public AudioSource jump;
+    //public AudioSource land;
     #endregion
 
     // Set true in inspector to see certain values.
@@ -143,7 +144,6 @@ public class PlayerInput : MonoBehaviour
         {
             // Sets player's state to interact
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.interact;
-            SoundManager.audioState = SoundManager.Audio.interactSFX;
             grab = true;         
         }
         // This checks if the player releases the key and if they are still in grab range
@@ -167,7 +167,6 @@ public class PlayerInput : MonoBehaviour
         if (verticalMovement == 0 && horizontalMovement == 0 && groundedPlayer && !Input.GetButtonDown("Jump") && !grab)
         {
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.idle;
-            SoundManager.audioState = SoundManager.Audio.none;
         }
 
         if ((verticalMovement !=0 || horizontalMovement != 0) && groundedPlayer && !Input.GetButtonDown("Jump") && !grab)
