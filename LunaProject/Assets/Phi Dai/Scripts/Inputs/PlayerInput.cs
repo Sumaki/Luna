@@ -140,14 +140,14 @@ public class PlayerInput : MonoBehaviour
 
 
         // Input check for grab + sets variable for the interact animation
-        if (Input.GetKey(KeyCode.E) && PlayerDetections.grabInRange)
+        if (Input.GetButton("Interact") && PlayerDetections.grabInRange)
         {
             // Sets player's state to interact
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.interact;
             grab = true;         
         }
         // This checks if the player releases the key and if they are still in grab range
-        else if (Input.GetKeyUp(KeyCode.E) && PlayerDetections.grabInRange)
+        else if (Input.GetButtonUp("Interact") && PlayerDetections.grabInRange)
         {
             horizontalMovement = 0;
             verticalMovement = 0;
@@ -211,6 +211,10 @@ public class PlayerInput : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         print(hit.gameObject.name);
+        if (hit.gameObject.tag == "Key")
+        {
+            hit.gameObject.GetComponent<ObjectInteractEvent>().interacted = true;
+        }
     }
    
 }

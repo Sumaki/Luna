@@ -9,7 +9,7 @@ public class TeleportPlayer : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // change for tag
-        if(collision.transform.name == "Character")
+        if(collision.transform.tag == "Player")
         {
             Debug.Log("TP'd");
             collision.transform.gameObject.GetComponent<CharacterController>().enabled = false;
