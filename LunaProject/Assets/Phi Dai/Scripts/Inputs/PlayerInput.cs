@@ -116,8 +116,9 @@ public class PlayerInput : MonoBehaviour
             // Sets player's state to jump
           
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.jump;
+            SoundManager.audioState = SoundManager.Audio.jumpSFX;
             //playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);               
-            // Debug.Log("Hold jump");
+            //Debug.Log("Hold jump");
             //playerVelocity.y += jumpHeight * (-fallMultiplier ) * Time.deltaTime;
             playerVelocity.y = jumpHeight;
             
@@ -127,8 +128,9 @@ public class PlayerInput : MonoBehaviour
         {
             // Sets player's state to jump
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.jump;
-           // playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * lowJumpMultiplier);
-           //Debug.Log("Short jump");
+            SoundManager.audioState = SoundManager.Audio.jumpSFX;
+            // playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * lowJumpMultiplier);
+            // Debug.Log("Short jump");
             playerVelocity.y += -lowJumpMultiplier;
         }
 
@@ -140,6 +142,7 @@ public class PlayerInput : MonoBehaviour
         {
             // Sets player's state to interact
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.interact;
+            SoundManager.audioState = SoundManager.Audio.interactSFX;
             grab = true;         
         }
         // This checks if the player releases the key and if they are still in grab range
@@ -154,19 +157,22 @@ public class PlayerInput : MonoBehaviour
         verticalMovement = Input.GetAxisRaw("Vertical");
         horizontalMovement = Input.GetAxisRaw("Horizontal");
 
-        SetPixelFlipVariable();
+        if(!grab)
+            SetPixelFlipVariable();
 
 
         // The following two if statements sets the animation for the character via a animator controller
 
-        if (verticalMovement == 0 && horizontalMovement == 0 && groundedPlayer)
+        if (verticalMovement == 0 && horizontalMovement == 0 && groundedPlayer && !Input.GetButtonDown("Jump"))
         {
-            PlayerAnimatorController.playerState = PlayerAnimatorController.State.idle;           
+            PlayerAnimatorController.playerState = PlayerAnimatorController.State.idle;
+            SoundManager.audioState = SoundManager.Audio.none;
         }
 
-        if ((verticalMovement !=0 || horizontalMovement != 0) && groundedPlayer)
+        if ((verticalMovement !=0 || horizontalMovement != 0) && groundedPlayer && !Input.GetButtonDown("Jump"))
         {
             PlayerAnimatorController.playerState = PlayerAnimatorController.State.walk;
+            SoundManager.audioState = SoundManager.Audio.footStepSFX;
         }
   
     }
